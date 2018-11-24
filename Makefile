@@ -23,11 +23,11 @@ configure:
 
 
 build-linux:
-	env GOOS=linux GOARCH=amd64 go build -o ./$(build_dir_linux)/$(projectName)-ldflags "-X main.version=$(version)"
+	env GOOS=linux GOARCH=amd64 go build -o ./$(build_dir_linux)/$(projectName) -ldflags "-X main.version=$(version)"
 	@cd ./$(build_dir_linux) && tar zcf ../$(build_dir)/$(packageNameNix) . 
 
 build-mac:
-	env GOOS=darwin GOARCH=amd64 go build -o ./$(build_dir_mac)/$(projectName)-ldflags "-X main.version=$(version)"
+	env GOOS=darwin GOARCH=amd64 go build -o ./$(build_dir_mac)/$(projectName) -ldflags "-X main.version=$(version)"
 	@cd ./$(build_dir_mac) && tar zcf ../$(build_dir)/$(packageNameMac) . 
 
 build-windows:
